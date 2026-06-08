@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>🐾 PetViz - Kedi & Köpek Cinsi Tanıyıcı</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/mobilenet@latest"></script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <h1>
+    <span class="emoji">🐾</span> PetViz
+  </h1>
+
+  <div class="container">
+    <div class="ana-layout">
+      
+      <!-- Sol Panel: Yükleme / Resim -->
+      <div class="sol-panel" id="sol-panel">
+        <!-- Yükleme öncesi içerik -->
+        <div class="yukleme-oncesi" id="yukleme-oncesi">
+          <span class="ikon-buyuk">🐕‍🦺</span>
+          <h3>Kedi veya Köpek Cinsini Keşfet!</h3>
+          <p>Fotoğraf yükle, yapay zeka anında tanısın.</p>
+          
+          <div class="desteklenen-turler">
+            <span class="tur-badge"><span class="badge-emoji">🐕</span> 20+ Köpek Irkı</span>
+            <span class="tur-badge"><span class="badge-emoji">🐈</span> 10+ Kedi Irkı</span>
+            <span class="tur-badge"><span class="badge-emoji">⚡</span> Anında Sonuç</span>
+          </div>
+          
+          <label for="foto-sec" class="dosya-sec-buton" id="dosya-sec-buton">
+            📸 Fotoğraf Yükle
+          </label>
+        </div>
+        
+        <!-- Gizli dosya inputu -->
+        <input type="file" id="foto-sec" accept="image/*" />
+        
+        <!-- Seçilen resim (başlangıçta gizli) -->
+        <img id="secilen-resim" width="300" style="display:none;" alt="Seçilen resim" />
+        
+        <!-- Sıfırla butonu (başlangıçta gizli) -->
+        <button class="sifirla-buton" id="sifirla-buton" style="display:none;">
+          🔄 Yeniden Yükle
+        </button>
+      </div>
+      
+      <!-- Sağ Panel: Sonuçlar -->
+      <div class="sag-panel" id="sag-panel">
+        <!-- Eski sonuç metni (gizli) -->
+        <p id="sonuc-metni" style="display:none;"></p>
+        
+        <!-- Yeni Sonuç Kartı Konteyneri -->
+        <div id="sonuc-konteyner"></div>
+      </div>
+      
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
